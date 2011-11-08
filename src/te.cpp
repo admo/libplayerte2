@@ -50,7 +50,7 @@ TE::TE(ConfigFile* cf, int section)
     laser_max_angle = cf->ReadFloat(section, "laser_max_angle",
             DTOR(90));
 
-
+    verbose = cf->ReadBool(section, "verbose", false);
 
     k_a = cf->ReadFloat(section, "k_a", 1);
 
@@ -313,7 +313,8 @@ TE::ProcessLaser(player_msghdr_t*, player_laser_data_t* scan) {
     }
     nearObstDist = dmin;
     if (dmin <= min_dist) {
-        PLAYER_MSG0(0, "TE::ProcessLaser Stoped");
+        if (verbose)
+            PLAYER_MSG0(0, "TE::ProcessLaser Stoped");
         waiting = true;
         PutPositionCmd(0, 0);
         stall = true;
@@ -464,7 +465,8 @@ TE::Main() {
         if (waiting) {
             PutPositionCmd(0, 0);
             stall = true;
-            PLAYER_MSG0(0, "TE::Main waiting");
+            if (verbose)
+                PLAYER_MSG0(0, "TE::Main waiting");
             continue;
         }
 
@@ -509,14 +511,17 @@ TE::Main() {
         g_da = angle_diff(currGoal.pa, odom_pose.pa);
 
         if ((g_dx < dist_eps)) { // jestesmy bliko celu
-            PLAYER_MSG0(0, "TE::Main Close to goal");
+            if (verbose)
+                PLAYER_MSG0(0, "TE::Main Close to goal");
             if (fabs(g_da) < ang_eps) { // z wlasciwa orientacja
                 active_goal = false;
                 PutPositionCmd(0.0, 0.0);
-                PLAYER_MSG0(0, "TE::Main At goal");
+                if (verbose)
+                    PLAYER_MSG0(0, "TE::Main At goal");
                 continue;
             } else { // trzeba poprawić orientację po dojechaniu do celu
-                PLAYER_MSG0(0, "TE::Main Correcting orientation");
+                if (verbose)
+                    PLAYER_MSG0(0, "TE::Main Correcting orientation");
                 vx = 0;
                 va = k_a * va_max * tanh(10 * g_da);
             }

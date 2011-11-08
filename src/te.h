@@ -129,6 +129,8 @@ public:
     virtual void Main();
 
 private:
+    bool verbose;
+
     bool active_goal;
     int dir;
     player_pose_t goal;
