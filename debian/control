@@ -1,0 +1,16 @@
+Source: libplayerte2
+Priority: optional
+Maintainer: Adam Oleksy <adam.oleksy@pwr.wroc.pl>
+Build-Depends: debhelper (>= 7), cmake, pkg-config, libplayercore-dev, libltdl-dev
+Standards-Version: 3.8.3
+Section: libs
+
+Package: libplayerte2
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Networked server for robots and sensors - Tangential escape algorith,
+ The driver itself supports the interface_position2d interface.  Send
+ PLAYER_POSITION2D_CMD_POS commands to set the goal pose.  The driver
+ also accepts PLAYER_POSITION2D_CMD_VEL commands, simply passing them
+ through to the underlying output device.

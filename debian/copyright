@@ -1,0 +1,22 @@
+This work was packaged for Debian by:
+
+    Adam Oleksy <adam.oleksy@pwr.wroc.pl> on Wed, 06 Apr 2011 16:20:00 +0200
+
+Upstream Author(s):
+
+    Łukasz Małek <lukasz.malek@pwr.wroc.pl>, Adam Oleksy <adam.oleksy@pwr.wroc.pl
+
+Copyright:
+
+    Copyright (C) 2010,2011
+    Geoffrey Biggs, Łukasz Małek, Adam Oleksy
+
+License:
+GPL v3.0, see /usr/share/common-licenses/GPL-3 for complete text.
+
+The Debian packaging is:
+
+    Copyright (C) 2011 Adam Oleksy <adam.oleksy@pwr.wroc.pl>
+
+and is licensed under the GPL version 3, 
+see `/usr/share/common-licenses/GPL-3'.
